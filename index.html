@@ -1,149 +1,129 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resell Store</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resell Hub</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #0f0f0f;
-      color: #fff;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
     }
-
     header {
-      background: linear-gradient(to right, #ff416c, #ff4b2b);
-      padding: 30px 20px;
+      background-color: #111;
+      color: #fff;
+      padding: 1rem;
       text-align: center;
-      color: white;
     }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background-color: #222;
+      padding: 0.5rem;
     }
-
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
     .container {
       max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
+      margin: 2rem auto;
+      padding: 1rem;
     }
-
-    .intro {
-      text-align: center;
-      margin-bottom: 30px;
+    .product {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-
-    .intro p {
-      font-size: 1.2rem;
-      color: #ccc;
+    .product h2 {
+      margin-top: 0;
     }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .product-card {
-      background: #1c1c1c;
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: 0.3s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 18px rgba(255, 75, 43, 0.5);
-    }
-
-    .product-card h3 {
-      margin-top: 10px;
-      font-size: 1.3rem;
-      color: #fff;
-    }
-
-    .product-card p {
-      font-size: 0.95rem;
-      color: #aaa;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background: #ff4b2b;
+    .buy-button {
+      background: #00b894;
       color: white;
-      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
       text-decoration: none;
-      transition: 0.2s;
     }
-
-    .btn:hover {
-      background: #e6391a;
-    }
-
     footer {
-      margin-top: 40px;
+      background-color: #111;
+      color: white;
       text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #888;
-    }
-
-    .telegram-link {
-      color: #00acee;
-      font-weight: 600;
+      padding: 1rem;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>🔥 Resell Bazaar</h1>
-    <p>India’s No.1 Resell Product Site</p>
+    <h1>Resell Hub</h1>
+    <p>Cheap Netflix, Mobile Recharge, Electronics & More</p>
   </header>
-
+  <nav>
+    <a href="#netflix">Netflix</a>
+    <a href="#mobile">Mobile Recharge</a>
+    <a href="#bracelet">LV Bracelet</a>
+    <a href="#vendors">Vendors</a>
+  </nav>
   <div class="container">
-    <div class="intro">
-      <p>Join our Telegram to grab best digital deals, cracked tools, and vendor contacts.</p>
-      <a href="https://t.me/Oyeepremm" class="btn">Join Telegram @Oyeepremm</a>
-    </div>
+    <section id="netflix" class="product">
+      <h2>Netflix Subscription</h2>
+      <p>Get Netflix at ₹99/month legally with shared access.</p>
+      <button class="buy-button" onclick="payNow('Netflix Subscription', 99)">Buy Now</button>
+    </section><section id="mobile" class="product">
+  <h2>Mobile Recharge</h2>
+  <p>Prepaid & Postpaid mobile recharge at discounted rates.</p>
+  <button class="buy-button" onclick="payNow('Mobile Recharge', 79)">Recharge Now</button>
+</section>
 
-    <div class="products">
-      <div class="product-card">
-        <h3>📦 Netflix Account</h3>
-        <p>Shared | 1 Month Access</p>
-        <a href="https://t.me/Oyeepremm" class="btn">Buy Now</a>
-      </div>
+<section id="bracelet" class="product">
+  <h2>LV Bracelet</h2>
+  <p>Original-looking Louis Vuitton bracelets at fraction of the cost.</p>
+  <button class="buy-button" onclick="payNow('LV Bracelet', 149)">Order Now</button>
+</section>
 
-      <div class="product-card">
-        <h3>💳 Paytm KYC Method</h3>
-        <p>100% Working | Video Guide</p>
-        <a href="https://t.me/Oyeepremm" class="btn">Get Now</a>
-      </div>
+<section id="vendors" class="product">
+  <h2>Our Vendors</h2>
+  <ul>
+    <li>Netflix Vendor: @flixmaster</li>
+    <li>Recharge Vendor: @rechargewala</li>
+    <li>Electronics Vendor: @techgadgets</li>
+    <li>Bracelet Vendor: @luxfashion</li>
+  </ul>
+</section>
 
-      <div class="product-card">
-        <h3>📲 Free Fire Diamond Trick</h3>
-        <p>Updated April 2025</p>
-        <a href="https://t.me/Oyeepremm" class="btn">View Trick</a>
-      </div>
-
-      <div class="product-card">
-        <h3>📁 Vendor List 2025</h3>
-        <p>100+ Trusted Suppliers</p>
-        <a href="https://t.me/Oyeepremm" class="btn">Download PDF</a>
-      </div>
-    </div>
   </div>
-
   <footer>
-    Made with ❤️ by <a href="https://t.me/Oyeepremm" class="telegram-link">@Oyeepremm</a>
-  </footer>
-
-</body>
-                                                                             </html>
+    <p>© 2025 Resell Hub. All rights reserved.</p>
+  </footer>  <script>
+    function payNow(product, amount) {
+      var options = {
+        "key": "rzp_test_yourapikeyhere", // 🔁 Replace with your Razorpay API key
+        "amount": amount * 100,
+        "currency": "INR",
+        "name": "Resell Hub",
+        "description": product,
+        "handler": function (response){
+          alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+        },
+        "prefill": {
+          "name": "",
+          "email": ""
+        },
+        "theme": {
+          "color": "#00b894"
+        }
+      };
+      var rzp1 = new Razorpay(options);
+      rzp1.open();
+    }
+  </script></body>
+</html>
